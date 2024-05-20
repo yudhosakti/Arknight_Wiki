@@ -15,7 +15,7 @@ class OperatorIconWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: MediaQuery.of(context).size.width * 0.23,
       height: MediaQuery.of(context).size.height,
       child: Column(
@@ -30,21 +30,19 @@ class OperatorIconWidget extends StatelessWidget {
                 color: isCircle ? Colors.grey[300] : null),
           ),
           Expanded(
-              child: Container(
-            child: Center(
-              child: Padding(
-                padding: EdgeInsets.only(
-                    bottom: MediaQuery.of(context).size.height * 0.01),
-                child: Text(
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  name,
-                  style: GoogleFonts.poppins(
-                      color: colorText, fontWeight: FontWeight.w500),
+              child: Center(
+                child: Padding(
+                  padding: EdgeInsets.only(
+                      bottom: MediaQuery.of(context).size.height * 0.01),
+                  child: Text(
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    name,
+                    style: GoogleFonts.poppins(
+                        color: colorText, fontWeight: FontWeight.w500),
+                  ),
                 ),
-              ),
-            ),
-          ))
+              ))
         ],
       ),
     );

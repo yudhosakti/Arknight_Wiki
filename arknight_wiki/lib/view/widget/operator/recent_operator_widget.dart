@@ -1,7 +1,7 @@
+import 'package:arknight_wiki/view/page/detail/operator_detail_page.dart';
 import 'package:arknight_wiki/view/widget/operator/operator_icon_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 
 class RecentOperatorWIdget extends StatelessWidget {
   const RecentOperatorWIdget({
@@ -52,12 +52,21 @@ class RecentOperatorWIdget extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemCount: 5,
                 itemBuilder: (context, index) {
-                  return OperatorIconWidget(
-                    isCircle: true,
-                    colorText: Colors.white,
-                    image:
-                        "https://sanitygone.help/images/avatars/char_4064_mlynar.png",
-                    name: "Mylnar",
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return OperatorDetailPage();
+                        },
+                      ));
+                    },
+                    child: OperatorIconWidget(
+                      isCircle: true,
+                      colorText: Colors.white,
+                      image:
+                          "https://sanitygone.help/images/avatars/char_4064_mlynar.png",
+                      name: "Mylnar",
+                    ),
                   );
                 },
               ),
