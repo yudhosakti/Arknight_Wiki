@@ -1,3 +1,4 @@
+import 'package:arknight_wiki/models/operator_promotion_material_mode.dart';
 import 'package:arknight_wiki/models/skill_operator_detail_model.dart';
 import 'package:arknight_wiki/models/talent_operator_model.dart';
 import 'package:flutter/material.dart';
@@ -137,17 +138,57 @@ class OperatorInformationProvider extends ChangeNotifier {
   ];
 
   List<TalentOperatorModel> talentsDummy = [
-     TalentOperatorModel(
-      description: "When attacking a target, there is 40% chance to attack another random target within Attack Range, dealing 40% Arts damage", 
-      talentName: "Lexicon Evolution"),
-      TalentOperatorModel(
-      description: "Attacks inflict -10 RES to the target and increase their Arts damage taken by 150 for 5 seconds", 
-      talentName: "Soul-shearing Tools"),
+    TalentOperatorModel(
+        description:
+            "When attacking a target, there is 40% chance to attack another random target within Attack Range, dealing 40% Arts damage",
+        talentName: "Lexicon Evolution"),
+    TalentOperatorModel(
+        description:
+            "Attacks inflict -10 RES to the target and increase their Arts damage taken by 150 for 5 seconds",
+        talentName: "Soul-shearing Tools"),
+  ];
+
+  List<OperatorPromotionMaterialModel> promotionDummy = [
+    OperatorPromotionMaterialModel(materials: [
+      Materials(
+          quantity: 7,
+          id_materials: "1",
+          image:
+              "https://raw.githubusercontent.com/Aceship/Arknight-Images/main/material/66.png",
+          name: "Crystalline Circuit"),
+      Materials(
+          quantity: 7,
+          id_materials: "1",
+          image:
+              "https://raw.githubusercontent.com/Aceship/Arknight-Images/main/material/66.png",
+          name: "Crystalline Circuit")
+    ], promotion: "1"),
+    OperatorPromotionMaterialModel(materials: [
+      Materials(
+          quantity: 7,
+          id_materials: "1",
+          image:
+              "https://raw.githubusercontent.com/Aceship/Arknight-Images/main/material/66.png",
+          name: "Crystalline Circuit"),
+      Materials(
+          quantity: 7,
+          id_materials: "1",
+          image:
+              "https://raw.githubusercontent.com/Aceship/Arknight-Images/main/material/66.png",
+          name: "Crystalline Circuit"),
+      Materials(
+          quantity: 7,
+          id_materials: "1",
+          image:
+              "https://raw.githubusercontent.com/Aceship/Arknight-Images/main/material/66.png",
+          name: "Crystalline Circuit")
+    ], promotion: "2")
   ];
 
   bool isInformation = true;
   int chooseSkill = 0;
   int indexChooseSkillEffect = 0;
+  int choosePromotion = 0;
 
   void changeValueInformation(bool newValue) {
     isInformation = newValue;
@@ -162,6 +203,11 @@ class OperatorInformationProvider extends ChangeNotifier {
   void changeSkillOperaatorIndex(int newValue) {
     chooseSkill = newValue;
     indexChooseSkillEffect = 0;
+    notifyListeners();
+  }
+
+  void changePromotion(int newIndex) {
+    choosePromotion = newIndex;
     notifyListeners();
   }
 }

@@ -13,7 +13,6 @@ import 'package:arknight_wiki/view/widget/others/description_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-
 class InformationOperatorWidget extends ConsumerWidget {
   const InformationOperatorWidget({
     super.key,
@@ -57,7 +56,13 @@ class InformationOperatorWidget extends ConsumerWidget {
             return DropDownWidgetCustom(
                 title: "Operator Promotion Materials",
                 animationContainer: animationContainer,
-                customInformation: PromotionOperatorWidget());
+                customInformation: Consumer(builder: (context, ref, child) {
+                  final OperatorInformationProvider promotion =
+                      ref.watch(changeSkillOperator);
+                  return PromotionOperatorWidget(
+                    operatorInformationProvider: promotion,
+                  );
+                }));
           }),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.01,
@@ -158,9 +163,3 @@ class InformationOperatorWidget extends ConsumerWidget {
     );
   }
 }
-
-
-
-
-
-
