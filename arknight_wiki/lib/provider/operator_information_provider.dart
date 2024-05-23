@@ -1,4 +1,5 @@
 import 'package:arknight_wiki/models/skill_operator_detail_model.dart';
+import 'package:arknight_wiki/models/talent_operator_model.dart';
 import 'package:flutter/material.dart';
 
 class OperatorInformationProvider extends ChangeNotifier {
@@ -134,6 +135,16 @@ class OperatorInformationProvider extends ChangeNotifier {
       ],
     )
   ];
+
+  List<TalentOperatorModel> talentsDummy = [
+     TalentOperatorModel(
+      description: "When attacking a target, there is 40% chance to attack another random target within Attack Range, dealing 40% Arts damage", 
+      talentName: "Lexicon Evolution"),
+      TalentOperatorModel(
+      description: "Attacks inflict -10 RES to the target and increase their Arts damage taken by 150 for 5 seconds", 
+      talentName: "Soul-shearing Tools"),
+  ];
+
   bool isInformation = true;
   int chooseSkill = 0;
   int indexChooseSkillEffect = 0;

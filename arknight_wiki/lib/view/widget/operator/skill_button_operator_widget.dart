@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
 class SkillButtonOperatorWidget extends StatelessWidget {
+  final int noSkill;
   final Color textColor;
   final Color containerColor;
   const SkillButtonOperatorWidget(
-      {super.key, required this.textColor, required this.containerColor});
+      {super.key, required this.textColor, required this.containerColor,required this.noSkill});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class SkillButtonOperatorWidget extends StatelessWidget {
             borderRadius: BorderRadius.all(Radius.circular(12))),
         child: Center(
           child: Text(
-            "Skill 1",
+            "Skill ${noSkill+1}",
             style: GoogleFonts.poppins(color: textColor, fontSize: 18),
           ),
         ));
