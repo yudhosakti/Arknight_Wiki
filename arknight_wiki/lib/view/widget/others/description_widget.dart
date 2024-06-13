@@ -13,7 +13,7 @@ class DescriptionWIdget extends StatelessWidget {
       child: FittedBox(
         child: Container(
           width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height * 0.1,
+          constraints: BoxConstraints(maxHeight: double.infinity, minHeight: 0),
           color: Colors.black,
           child: Padding(
             padding: EdgeInsets.symmetric(

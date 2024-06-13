@@ -16,7 +16,6 @@ final traitContainerAnimation =
 final talentContainerAnimation =
     ChangeNotifierProvider((ref) => AnimatedProvider());
 
-
 final abilityContainerAnimation =
     ChangeNotifierProvider((ref) => AnimatedProvider());
 
@@ -26,3 +25,20 @@ final showcaseContainerAnimation =
 final similarContainerAnimation =
     ChangeNotifierProvider((ref) => AnimatedProvider());
 
+final detailEnemyDescriptionAnimation =
+    ChangeNotifierProvider((ref) => AnimatedProvider());
+
+final detailEnemyStatsAnimation =
+    ChangeNotifierProvider((ref) => AnimatedProvider());
+
+final detailEnemyApperanceAnimation =
+    ChangeNotifierProvider((ref) => AnimatedProvider());
+
+final detailMaterialDescriptionAnimation =
+    ChangeNotifierProvider((ref) => AnimatedProvider());
+
+final detailMaterialApperanceAnimation =
+    ChangeNotifierProvider((ref) => AnimatedProvider());
+
+final detailMaterialCraftingAnimation =
+    ChangeNotifierProvider((ref) => AnimatedProvider());

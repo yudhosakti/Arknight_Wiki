@@ -6,7 +6,7 @@ class BannerProvider extends ChangeNotifier {
   int potition = 0;
   int bannerPosition = 0;
 
-   List<BannerModel> banner = [
+  List<BannerModel> banner = [
     BannerModel(
         image:
             "https://webusstatic.yo-star.com/uy0news/ae/fc0dcdd9d1b9d73e4a9f03dab7267cff.jpg",
@@ -24,7 +24,7 @@ class BannerProvider extends ChangeNotifier {
         title: "Siracusa"),
     BannerModel(
         image:
-            "https://imgeucdn.gamespress.com/cdn/files/Games%20Press/2023/07/130724-351900b5/1.jpg?w=540&mode=max&otf=y&quality=90&format=jpg&bgcolor=white&ex=2024-06-01+03%3A00%3A00&sky=554a1654bec79cbca17dafe235d3413273a8412cec34f61db1da04a0a8e76596",
+            "https://cdn.gamerbraves.com/2023/07/Arknights_WhatTheFirelightCasts_02.jpg",
         startDate: "2024-04-08",
         title: "What The Firelight Cast "),
   ];

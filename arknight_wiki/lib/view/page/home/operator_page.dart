@@ -1,5 +1,12 @@
+import 'package:arknight_wiki/models/category_model.dart';
 import 'package:arknight_wiki/provider/operator_class_banner_provider.dart';
 import 'package:arknight_wiki/provider/riverpod_banner.dart';
+import 'package:arknight_wiki/view/page/detail/operator_detail_page.dart';
+import 'package:arknight_wiki/view/page/list_item/enemy_list_page.dart';
+import 'package:arknight_wiki/view/page/list_item/material_list_page.dart';
+import 'package:arknight_wiki/view/page/list_item/operator_list_page.dart';
+import 'package:arknight_wiki/view/page/list_item/theme_list_page.dart';
+import 'package:arknight_wiki/view/page/planning/planning_page.dart';
 import 'package:arknight_wiki/view/widget/operator/operator_icon_widget.dart';
 import 'package:arknight_wiki/view/widget/operator/search_operator_widget.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -8,7 +15,16 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class OperatorPage extends ConsumerWidget {
-  const OperatorPage({super.key});
+  OperatorPage({super.key});
+
+  final List<CategoryModel> categories = [
+    CategoryModel(route: OperatorListPage(), title: "Operator"),
+    CategoryModel(route: EnemyListPage(), title: "Enemy"),
+    CategoryModel(route: MaterialListPage(), title: "Material"),
+    CategoryModel(route: PlanningPage(), title: "Planning"),
+    CategoryModel(route: ThemeListPage(), title: "Theme"),
+    CategoryModel(route: OperatorDetailPage(), title: "Base Skill")
+  ];
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -22,38 +38,45 @@ class OperatorPage extends ConsumerWidget {
         GridView.builder(
           shrinkWrap: true,
           physics: NeverScrollableScrollPhysics(),
-          itemCount: 6,
+          itemCount: categories.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 4, childAspectRatio: 0.9),
           itemBuilder: (context, index) {
             return Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height,
-                child: Column(
-                  children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height * 0.08,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.vertical(
-                              top: Radius.circular(12),
-                              bottom: Radius.circular(12)),
-                          color: Colors.black,
-                          image: DecorationImage(
-                              image: NetworkImage(
-                                  'https://static.wikia.nocookie.net/mrfz/images/c/c8/Rhodes_Island.png/revision/latest/scale-to-width-down/510?cb=20210713014317'),
-                              fit: BoxFit.fill)),
-                    ),
-                    Expanded(
-                        child: Center(
-                            child: Text(
-                      "Operator",
-                      style: GoogleFonts.poppins(
-                          color: Colors.white, fontWeight: FontWeight.w500),
-                    )))
-                  ],
+              child: GestureDetector(
+                onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => categories[index].route,
+                    )),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height,
+                  child: Column(
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height * 0.08,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.vertical(
+                                top: Radius.circular(12),
+                                bottom: Radius.circular(12)),
+                            color: Colors.black,
+                            image: DecorationImage(
+                                image: NetworkImage(
+                                    'https://static.wikia.nocookie.net/mrfz/images/c/c8/Rhodes_Island.png/revision/latest/scale-to-width-down/510?cb=20210713014317'),
+                                fit: BoxFit.fill)),
+                      ),
+                      Expanded(
+                          child: Center(
+                              child: Text(
+                        "${categories[index].title}",
+                        style: GoogleFonts.poppins(
+                            color: Colors.white, fontWeight: FontWeight.w500),
+                      )))
+                    ],
+                  ),
                 ),
               ),
             );

@@ -1,6 +1,7 @@
 import 'package:arknight_wiki/provider/operator_information_provider.dart';
 import 'package:arknight_wiki/provider/reviews_provider.dart';
 import 'package:arknight_wiki/provider/riverpod_operator_information.dart';
+import 'package:arknight_wiki/view/page/detail/reviews_page.dart';
 import 'package:arknight_wiki/view/widget/operator/information_operator_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -16,7 +17,13 @@ class OperatorDetailPage extends ConsumerWidget {
       floatingActionButton: ref.watch(changeLayout).isInformation
           ? null
           : FloatingActionButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ReviewsPage(),
+                    ));
+              },
               child: Icon(
                 Icons.reviews,
                 color: Colors.white,
@@ -398,19 +405,24 @@ class OperatorDetailPage extends ConsumerWidget {
                                                                         .size
                                                                         .width *
                                                                     0.01),
-                                                            child: Text(
-                                                              maxLines: 1,
-                                                              overflow:
-                                                                  TextOverflow
-                                                                      .ellipsis,
-                                                              "${reviewsProvider.reviewsDummy[index].name}",
-                                                              style: GoogleFonts.poppins(
-                                                                  color: Colors
-                                                                      .white,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                  fontSize: 16),
+                                                            child: Align(
+                                                              alignment: Alignment
+                                                                  .centerLeft,
+                                                              child: Text(
+                                                                maxLines: 1,
+                                                                overflow:
+                                                                    TextOverflow
+                                                                        .ellipsis,
+                                                                "${reviewsProvider.reviewsDummy[index].name}",
+                                                                style: GoogleFonts.poppins(
+                                                                    color: Colors
+                                                                        .white,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                    fontSize:
+                                                                        16),
+                                                              ),
                                                             ),
                                                           ),
                                                         ),

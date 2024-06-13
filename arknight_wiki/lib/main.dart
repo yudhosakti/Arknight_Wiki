@@ -11,7 +11,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  const MaterialApp(
+    return MaterialApp(
+      theme: ThemeData(
+          dividerTheme: DividerThemeData(color: Colors.transparent),
+          bottomSheetTheme:
+              BottomSheetThemeData(backgroundColor: Colors.black)),
       debugShowCheckedModeBanner: false,
       home: OnBoardingPage(),
     );
